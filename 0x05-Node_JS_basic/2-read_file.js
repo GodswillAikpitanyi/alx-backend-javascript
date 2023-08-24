@@ -11,13 +11,13 @@ function countStudents(path) {
 
     const allFields = {};
     for (let i = 1; i < lines.length; i += 1) {
-      const [, , , field] = lines[i].split(',');
+      const [firstname, lastname, age, field] = lines[i].split(',');
       if (field) {
         if (allFields[field]) {
-          allFields[field].count = +1;
-          allFields[field].list.push(lines[i].split(',')[0]);
+          allFields[field].count += 1;
+          allFields[field].list.push(firstname);
         } else {
-          allFields[field] = { count: 1, list: [lines[i].split(',')[0]] };
+          allFields[field] = { count: 1, list: [firstname] };
         }
       }
     }
